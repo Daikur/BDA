@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import static parques.TestBDA.url;
 
 public class Comunidades extends javax.swing.JFrame {
 

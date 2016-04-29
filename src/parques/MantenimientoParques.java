@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import static parques.Comunidades.url;
 
 public class MantenimientoParques extends javax.swing.JFrame {
 
@@ -18,13 +17,10 @@ public class MantenimientoParques extends javax.swing.JFrame {
         boolean resultado = false;
 
         try {
-
             conn = DriverManager.getConnection(url, login, password);
             if (conn != null) {
                 resultado = true;
                 this.labelConexion.setText("Conexión Establecida");
-                
-
             }
         } catch (SQLException ex) {
             this.labelException.setText("Error: " + ex.getMessage() + " " + ex.getErrorCode());
@@ -46,9 +42,9 @@ public class MantenimientoParques extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         campoCodigo = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botonNew = new javax.swing.JButton();
+        botonDelete = new javax.swing.JButton();
+        botonEdit = new javax.swing.JButton();
         labelConexion = new javax.swing.JLabel();
         labelException = new javax.swing.JLabel();
 
@@ -76,14 +72,19 @@ public class MantenimientoParques extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Km2");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("New");
+        botonNew.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonNew.setText("New");
+        botonNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonNewActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Delete");
+        botonDelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonDelete.setText("Delete");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Edit");
+        botonEdit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonEdit.setText("Edit");
 
         labelConexion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -121,11 +122,11 @@ public class MantenimientoParques extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(labelConexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1)
+                            .addComponent(botonNew)
                             .addGap(71, 71, 71)
-                            .addComponent(jButton2)
+                            .addComponent(botonDelete)
                             .addGap(61, 61, 61)
-                            .addComponent(jButton3))))
+                            .addComponent(botonEdit))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,9 +153,9 @@ public class MantenimientoParques extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(botonNew)
+                    .addComponent(botonDelete)
+                    .addComponent(botonEdit))
                 .addGap(38, 38, 38)
                 .addComponent(labelConexion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
@@ -165,9 +166,10 @@ public class MantenimientoParques extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void botonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNewActionPerformed
+        
+    }//GEN-LAST:event_botonNewActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -201,13 +203,13 @@ public class MantenimientoParques extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonDelete;
+    private javax.swing.JButton botonEdit;
+    private javax.swing.JButton botonNew;
     private javax.swing.JTextField campoCodigo;
     private javax.swing.JTextField campoExtension;
     private javax.swing.JTextField campoID;
     private javax.swing.JTextField campoName;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
